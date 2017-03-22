@@ -115,11 +115,11 @@
         
         /* TODO 로그아웃 버튼을 눌렀을 때 인증 해제 하도록 하기 */
         $("#BTN_LOGOUT").click(() => {
+            const success = () => alert("인증이 해제되었습니다.");
+            const fail = error => alert(error.message);
+            
             firebase.auth().signOut()
-                .then(
-                    () => alert("인증이 해제되었습니다.")),
-                    (error => alert(error.message)
-                );
+                .then(success, fail);
         });
     </script>
 
