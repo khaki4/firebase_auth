@@ -90,16 +90,20 @@ $('#creatAccountWithVerifyEmail').on('click', () => {
 
 
 $('#sendMailToResetPassword').on('click', () => {
-    const user = firebase.auth().currentUser;
-    const emailAddress = user.email;
+    try {
+        const user = firebase.auth().currentUser;
+        const emailAddress = user.email;
 
-    const success = () => {
-        console.log('send mail to reset password');
-    };
-    const fail = error => alert(error.message);
+        const success = () => {
+            console.log('send mail to reset password');
+        };
+        const fail = error => alert(error.message);
 
-    auth.sendPasswordResetEmail(emailAddress)
-        .then(success, fail);
+        auth.sendPasswordResetEmail(emailAddress)
+            .then(success, fail);
+    } catch (e) {
+        console.warn(e.message);
+    }
 });
 
 $('#registerUserAndWaitEmailVerification').on('click', () => {
