@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Email Auth by Firebase</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/css/materialize.min.css" media="screen,projection"/>
+    <style>
+        #CONTENTS {
+            min-height: 1000px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- 내용 부분 -->
+<div class="container" id="CONTENTS">
+
+    <!-- 로그인박스 -->
+    <div class="card">
+        <div class="card-content">
+
+            <h4>[회원가입]</h4>
+            <div class="row">
+                <div class="input-field col s12">
+                    <!-- 가입 메일 주소 입력 폼 -->
+                    <input id="INPUT_MAIL" placeholder="메일 주소를 입력하세요" type="email" class="validate">
+                    <label for="INPUT_MAIL">Email</label>
+                </div>
+                <div class="input-field col s12">
+                    <!-- 가입 패스워드 입력 폼 -->
+                    <input id="INPUT_PASSWORD" placeholder="비밀 번호를 입력하세요 (6자 이상)" type="password" class="validate">
+                    <label for="INPUT_PASSWORD">Password</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="INPUT_NAME" placeholder="닉네임을 입력하세요" type="text" class="validate">
+                    <label for="INPUT_NAME">Nick Name</label>
+                </div>
+                <!-- TODO 닉네임 입력 폼 -->
+                <div class="input-field col s12">
+                    <!-- 회원가입 버튼 -->
+                    <!--<button id="BTN_SIGNUP" type="button" class="btn right blue"> 회 원 가 입 </button>-->
+                    <!--<button id="creatAccountWithVerifyEmail" type="button" class="btn right blue">이메일 인증으로 가입하기</button>-->
+                    <div class="btn-group col s12">
+                        <button id="sendMailToResetPassword" type="button" class="btn left green col s6">비밀번호 변경 메일
+                            보내기
+                        </button>
+                        <button id="registerUserAndWaitEmailVerification" type="button" class="btn right blue col s6">메일
+                            인증 후 가입승인
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <h4>[로그인]</h4>
+            <div class="row">
+                <div class="input-field col s12">
+                    <!-- 로그인 메일 주소 입력 폼 -->
+                    <input id="SIGNIN_MAIL" placeholder="메일 주소를 입력하세요" type="email" class="validate">
+                    <label for="SIGNIN_MAIL">Email</label>
+                </div>
+                <div class="input-field col s12">
+                    <!-- 로그인 패스워드 입력 폼 -->
+                    <input id="SIGNIN_PASSWORD" placeholder="비밀 번호를 입력하세요" type="password" class="validate">
+                    <label for="SIGNIN_PASSWORD">Password</label>
+                </div>
+                <div class="input-field col s12">
+                    <!-- 로그인 버튼  -->
+                    <button id="BTN_SIGNIN" type="button" class="btn right indigo"> 회 원 로 그 인</button>
+                </div>
+            </div>
+            <div class="row">
+                로그인 상태 :
+                <span id="AUTH_STATE" class="blue-text">(인증되지 않음)</span>
+
+
+                <ol id="USER_INFO">
+                    <li>UID : <span id="USER_UID" class="blue-text"></span></li>
+                    <li>메일 : <span id="USER_MAIL" class="blue-text"></span></li>
+                    <li>이름 : <span id="USER_NAME" class="blue-text"></span></li>
+                    <li><img alt="" id="USER_PHOTO" width="50" style="vertical-align: top"></li>
+                </ol>
+            </div>
+            <button id="BTN_LOGOUT" type="button" class="btn indigo" style="display: none">로그 아웃</button>
+        </div>
+        <!-- end card-content div -->
+    </div>
+</div>
+
+<!-- 바닥글 영역 -->
+<footer class="page-footer indigo">
+    <div class="footer-copyright">
+        <div class="container">
+            &copy; 2017 Copyright <a href="http://phigolf.com" target="_blank" class="white-text">PhiNetworks
+        </div>
+    </div>
+</footer>
+
+<!-- /////////////////////////////////// javascript 스크립트 영역 /////////////////////////////////// -->
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="/js/materialize.min.js"></script>
+
+<!-- TODO firebase SDK 링크 -->
+<script src="/js/firebase/firebase.js"></script>
+<script src="/js/firebase/firebase-app.js"></script>
+<script src="/js/firebase/firebase-auth.js"></script>
+<script src="/js/firebase/firebase-database.js"></script>
+<script src="/js/firebase/firebase-messaging.js"></script>
+<script src="/auth/config/firebase/fireinit.js"></script>
+<script src="/auth/EmailAuth.js"></script>
+<script src="/auth/authMail.controller.js"></script>
+</body>
+
+</html>

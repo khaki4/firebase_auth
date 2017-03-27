@@ -5,8 +5,11 @@
   "repository": "https://github.com/khaki4/firebase_auth.git",
   "author": "정지원 <4dakto@gmail.com>",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "firebase": "^3.7.3"
+  },
   "devDependencies": {
-    "@types/firebase": "^2.4.31"
+    "@types/firebase": "^2.4.31",
+    "requirejs": "^2.3.3"
   }
 }
